@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Suggestion System</title>
+</head>
+<body>
+  <h1>Suggestion System</h1>
+  <form id="suggestionForm">
+    <input type="text" name="suggestion" placeholder="Enter your suggestion" required>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+
+    document.getElementById('suggestionForm').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const suggestion = document.querySelector('input[name="suggestion"]').value;
+      socket.emit('newSuggestion', suggestion);
+      document.querySelector('input[name="suggestion"]').value = '';
+    });
+  </script>
+</body>
+</html>

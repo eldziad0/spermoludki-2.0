@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Panel - Suggestions</title>
+  <style>
+    /* Your existing CSS styles here */
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    Admin Panel - Suggestions
+  </div>
+
+  <div class="content">
+    <h1>Suggestions</h1>
+    <ul id="suggestion-list">
+      <% suggestions.forEach(function(suggestion) { %>
+      <li><%= suggestion %></li>
+      <% }); %>
+    </ul>
+    <!-- Rest of your content here -->
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+
+    // Listen for new suggestions
+    socket.on('newSuggestion', (suggestion) => {
+      console.log('New suggestion:', suggestion); // Add this line to log the received suggestion
+      const suggestionList = document.getElementById('suggestion-list');
+      const listItem = document.createElement('li');
+      listItem.textContent = suggestion;
+      suggestionList.appendChild(listItem);
+    });
+  </script>
+</body>
+</html>
