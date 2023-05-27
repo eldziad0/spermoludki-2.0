@@ -1,24 +1,235 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Suggestion System</title>
+  <title>SPERMOLUDKI</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('https://cdn.discordapp.com/attachments/1034915650147188806/1111358812088172584/spermoludki_website.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    
+    .navbar {
+      background-color: black;
+      padding: 10px;
+      color: green;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    
+    .content {
+      flex: 1;
+      padding: 20px;
+      color: white;
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+      line-height: 1.5;
+      overflow-y: auto;
+    }
+    
+    .przekazania-boze {
+      position: relative;
+    }
+    
+    .przekazania-boze:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 42%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    
+    .przekazania-boze h1,
+    .przekazania-boze p {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .discord-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 20px;
+    }
+    
+    .discord-button a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      background-color: blue;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-family: Verdana, Geneva, sans-serif; /* Change the font here */
+    }
+    
+    .discord-button a img {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+    }
+    
+    .discord-button a span {
+      color: black;
+      font-weight: bold;
+    }
+    
+    .meme-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+    }
+    
+    .meme-button a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      background-color: yellow;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-family: Verdana, Geneva, sans-serif; /* Change the font here */
+    }
+    
+    .meme-button a img {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+    }
+    
+    .meme-of-the-day {
+      position: fixed;
+      bottom: 70px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      color: white;
+      font-size: 16px;
+    }
+    
+    .meme-of-the-day img {
+      width: 150px;
+      height: 150px;
+    }
+    
+    .meme-of-the-day p {
+      margin-top: 10px;
+    }
+    
+    .game-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 20px;
+    }
+    
+    .game-button a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      background-color: purple;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-family: Verdana, Geneva, sans-serif;
+    }
+    
+    .game-button a img {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+    }
+    
+    .game-button a span {
+      color: white;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-  <h1>Suggestion System</h1>
-  <form id="suggestionForm">
-    <input type="text" name="suggestion" placeholder="Enter your suggestion" required>
-    <button type="submit">Submit</button>
-  </form>
-
-  <script src="/socket.io/socket.io.js"></script>
+  <div class="navbar">
+    SPERMOLUDKI HQ
+  </div>
+  
+  <div class="content">
+    <h1>Witaj na SPERMOLUDKI HQ</h1>
+    <div id="suggestion-box">
+      <textarea id="suggestion-input" rows="4" cols="30" placeholder="Enter your suggestion"></textarea>
+      <button id="submit-suggestion">Submit</button>
+    </div>
+    <div class="przekazania-boze">
+      <p>Jan pawel drugi jebal male dzieci a wiec czas na przekazania boże</p>
+      <p>11 PRZEKAZAŃ BOŻYCH</p>
+      <p>1️⃣. Szanuj innych użytkowników.</p>
+      <p>2️⃣. Zachowuj się przyzwoicie i unikaj obraźliwych słów.</p>
+      <p>3️⃣. Nie tolerujemy treści pornograficznych, wulgarnych lub nieodpowiednich, chyba że kanał jest oznaczony jako kanał NSFW.</p>
+      <p>4️⃣. Nie spamuj ani nie rozpowszechniaj niechcianych reklam.</p>
+      <p>5️⃣. Bądź uprzejmy i pomocny wobec innych członków społeczności.</p>
+      <p>6️⃣. Unikaj kłótni, nie rozpowszechniaj plotek ani nie zakłócaj spokoju na serwerze.</p>
+      <p>7️⃣. Zachowuj poufność i nie udostępniaj prywatnych informacji innych osób bez ich zgody.</p>
+      <p>8️⃣. Przestrzegaj instrukcji administratorów i moderatorów serwera.</p>
+      <p>9️⃣. Nie odbieraj rangi bratu swojemu.</p>
+      <p>1️⃣0️⃣. Nie wyciszaj ani nie dawaj timeouta bratu swojemu.</p>
+      <p>1️⃣1️⃣. Nie wkurwiaj ludzi bo cie zgwalce</p>
+    </div>
+    <p>&#8203;</p>
+    <p>&#8203;</p>
+    <p>&#8203;</p>
+    <p>&#8203;</p>
+    <p>&#8203;</p>
+    <p>&#8203;</p>
+    <p>&#8203;</p>
+    <p>&#8203;</p>
+    <p>&#8203;</p>
+    <!-- Add more content here -->
+  </div>
+  
+  <div class="discord-button">
+    <a href="https://discord.gg/EdbgJYMA46" target="_blank">
+      <img src="https://static.vecteezy.com/system/resources/previews/018/930/718/non_2x/discord-logo-discord-icon-transparent-free-png.png" alt="Discord Logo">
+      <span>Serwer Discord</span>
+    </a>
+  </div>
+  
+  <div class="meme-button">
+    <a href="mems.html">
+      <img src="https://www.digitalmomblog.com/wp-content/uploads/2022/10/memes-funny.jpeg.webp" alt="Meme Button">
+      <span>MEMES</span>
+    </a>
+  </div>
+  
+  <div class="game-button">
+    <a href="game.html">
+      <img src="https://m.media-amazon.com/images/I/61ruXH2Y8jL._AC_SL1500_.jpg" alt="Game Button">
+      <span>PLAY GAME</span>
+    </a>
+  </div>
+  
+  <div class="meme-of-the-day">
+    <img src="https://media.tenor.com/XbJJwBwpzQsAAAAM/papaj-cenzoj.gif" alt="Meme of the Day">
+    <p>🏆 Meme of the Day 🏆</p>
+  </div>  
+  
   <script>
-    const socket = io();
-
-    document.getElementById('suggestionForm').addEventListener('submit', (event) => {
-      event.preventDefault();
-      const suggestion = document.querySelector('input[name="suggestion"]').value;
-      socket.emit('newSuggestion', suggestion);
-      document.querySelector('input[name="suggestion"]').value = '';
+    document.getElementById('submit-suggestion').addEventListener('click', function() {
+      var suggestion = document.getElementById('suggestion-input').value;
+      if (suggestion.trim() !== '') {
+        var suggestions = JSON.parse(localStorage.getItem('suggestions')) || [];
+        suggestions.push(suggestion);
+        localStorage.setItem('suggestions', JSON.stringify(suggestions));
+        alert('Suggestion submitted successfully!');
+        document.getElementById('suggestion-input').value = ''; // Clear the input field
+      }
     });
   </script>
 </body>
